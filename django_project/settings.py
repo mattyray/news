@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,7 +36,9 @@ ROOT_URLCONF = "django_project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            BASE_DIR / "templates"
+        ],  # specifies the directory where the templates are stored
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -90,6 +91,10 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-#---------------------------------------------------------------------#
+# ---------------------------------------------------------------------#
 
-AUTH_USER_MODEL="accounts.CustomUser"
+AUTH_USER_MODEL = "accounts.CustomUser"
+
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"  # redirects to the home page after log'
+# redirects to the home page after login
