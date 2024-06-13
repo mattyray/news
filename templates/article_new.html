@@ -1,0 +1,14 @@
+<!--temp\new_article.html-->
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}New Article{% endblock %}
+
+{% block content %}
+<h1>New Article</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-info ml-2" type="submit">Save</button>
+</form>
+{% endblock %}
