@@ -38,7 +38,7 @@ Bash:
     python manage.py createsuperuser
 
 7. Hit the lights!@ 
-Bash:
+Bash: 
     python manage.py runserver
 
 8.  check local development server, create a user and try the logout
