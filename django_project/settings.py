@@ -1,5 +1,6 @@
 from pathlib import Path
-#new
+
+# new
 from pathlib import Path
 from environs import Env
 
@@ -24,22 +25,22 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    #whitenoise - ordeer matters
+    # whitenoise - ordeer matters
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
-    #3rd party
+    # 3rd party
     "crispy_forms",
     "crispy_bootstrap5",
-    #local applications
+    # local applications
     "accounts",
-    "pages",
     "articles",
+    "pages",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    #whitenoise - ordeer matters
+    # whitenoise - ordeer matters
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -70,9 +71,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "django_project.wsgi.application"
 
-DATABASES = {
-    "default": env.dj_db_url("DATABASE_URL", default="sqlite:///db.sqlite3")
-}
+DATABASES = {"default": env.dj_db_url("DATABASE_URL", default="sqlite:///db.sqlite3")}
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -101,17 +100,15 @@ USE_TZ = True
 
 
 STATIC_URL = "static/"
-#new
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
-]
+# new
+STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
-    'staticfiles': {
+    "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
@@ -129,6 +126,6 @@ LOGOUT_REDIRECT_URL = "home"  # redirects to the home page after log'
 
 # crispy forms settings
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK="bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
