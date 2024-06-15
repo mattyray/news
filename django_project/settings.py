@@ -15,7 +15,7 @@ SECRET_KEY = env.str("SECRET_KEY")
 
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["matts-newspaper-applicatiom.fly.dev", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["matts-newspaper-application.fly.dev", "localhost", "127.0.0.1"]
 CSRF_TRUSTED_ORIGINS = ["https://matts-newspaper-application.fly.dev"]
 
 
