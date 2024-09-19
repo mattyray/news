@@ -3,8 +3,9 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="article-entry">
-   <h2>{{ object.author }} | {{ object.date }}</h2>
-   <p>{{ object.body }}</p>
+   <h1>{{ object.title }} </h1><h5> {{ object.date }}</h5>
+   <p>{{ object.body|safe }}</p>
+   <h3>{{ object.author }}</h3>
 </div>
 
 <hr>

@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView, FormView
 from django.views.generic.detail import SingleObjectMixin
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import Article
-from .forms import CommentForm
+from .forms import CommentForm, ArticleForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy, reverse
 
@@ -59,7 +59,8 @@ class ArticleDetailView(LoginRequiredMixin, DetailView):
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
     template_name = "article_edit.html"
-    fields = ("title", "body")
+    form_class = ArticleForm #chatgpt
+#    fields = ("title", "body") removed this
 
     def test_func(self):
         obj = self.get_object()
@@ -78,8 +79,9 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
+    form_class = ArticleForm #chatgpt 
+    #removed fields = ("title", "body")
     template_name = "article_new.html"
-    fields = ("title", "body")
 
     def form_valid(self, form):
         form.instance.author = self.request.user

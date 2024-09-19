@@ -1,10 +1,12 @@
 from django.conf import settings
-from django.db import models
+from django.db import models 
+from ckeditor_uploader.fields import RichTextUploadingField #chatgpt
+
 from django.urls import reverse
 
 class Article(models.Model):
     title=models.CharField(max_length=255)
-    body=models.TextField()
+    body=RichTextUploadingField()  #chatgpt
     date=models.DateTimeField(auto_now_add=True)
     author=models.ForeignKey(
         settings.AUTH_USER_MODEL,

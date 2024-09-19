@@ -6,7 +6,7 @@
 
 {% block content %}
 <h1>Edit Article</h1>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data" > <!-- added enctype=vchatgpt-->
     {% csrf_token %}
     {{ form|crispy }}
     <button class="btn btn-info ml-2" type="submit">Save Changes</button>

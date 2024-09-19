@@ -1,5 +1,6 @@
 from pathlib import Path
 from environs import Env  # new
+import os  # new
 
 env = Env()  # new
 env.read_env()  # new
@@ -31,6 +32,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",  # new
     "django.contrib.staticfiles",
+    "ckeditor", #new
+    "ckeditor_uploader", #new
     # 3rd Party
     "crispy_forms",
     "crispy_bootstrap5",
@@ -135,3 +138,39 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 TIME_ZONE = "America/New_York"
+
+# CKEDITOR
+
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/" #from ckeditor webpage
+
+CKEDITOR_UPLOAD_PATH = "uploads/" #new FROM CKEDITOR WEBPAGE
+
+MEDIA_URL = "/media/" #new
+MEDIA_ROOT = os.path.join(BASE_DIR, "media") #new
+
+CKEDITOR_CONFIGS = { #edited 9/18 to adjust font size
+    'default': {
+        'toolbar': 'full',
+        'extraPlugins': ','.join([
+            'font',  # Add the font plugin
+        ]),
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+            ['NumberedList', 'BulletedList'],
+            ['Link', 'Unlink'],
+            ['FontSize'],  # Add Font Size to the toolbar
+            ['TextColor', 'BGColor'],  # Add Text Color and Background Color options
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+        ],
+        'height': 300,
+        'width': '100%',
+        'toolbar_full': [
+            ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'],
+            ['NumberedList', 'BulletedList'],
+            ['Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Table', 'HorizontalRule', 'SpecialChar'],
+        ],
+    }
+}
