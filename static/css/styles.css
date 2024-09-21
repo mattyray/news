@@ -3,30 +3,45 @@
     font-size: 36px;
     color: #0000ff;
     margin-bottom: 10px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
-/* styles.css */
-/* styles.css */
-
-/* Add stronger shadow to the cards */
+/* Darker and more pronounced box shadow for article cards */
 .card {
-    border-radius: 8px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 17px rgba(0, 0, 0, 0.35); /* Adjusted shadow with more opacity and depth */
+    border-radius: 10px; /* Keep the border radius */
+    background-color: #fff; /* Ensure the background is consistent */
 }
 
-/* Adjust the link hover effect for the nav items */
+.card-body, .card-header, .card-footer {
+    padding: 20px; /* Ensure consistent padding */
+}
+
+.card p {
+    margin-bottom: 1.5rem; /* Ensure paragraph spacing is consistent */
+}
+
 .nav-link:hover {
     color: #007bff;
     text-decoration: underline;
 }
 
 /* Make sure the sidebar is fixed on the right with some padding */
-#right-sidebar {
-    padding-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    padding-right: 20px;
-    top: 100px; /* Adjust as necessary */
+/* Left Sidebar Box Shadow */
+.left-sidebar {
+    box-shadow: 0 6px 17px rgba(0, 0, 0, 0.35); /* Adjusted shadow with more opacity and depth */
+    border-radius: 10px; /* Keep the border radius */
+
+    padding: 20px;  /* Add padding if needed */
+    background-color: #fff;  /* Ensure a consistent background */
+}
+
+/* Right Sidebar Box Shadow */
+.right-sidebar {
+    box-shadow: 0 6px 17px rgba(197, 23, 23, 0.35); /* Adjusted shadow with more opacity and depth */
+    border-radius: 10px; /* Keep the border radius */
+
+    padding: 20px;  /* Ensure there's enough padding */
+    background-color: #fff;
 }
 
 .card-footer h6 {

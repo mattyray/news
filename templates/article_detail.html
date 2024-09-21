@@ -1,52 +1,60 @@
 {% extends 'base.html' %}
-
-{% block title %}Article List{% endblock %}
-
+{% load crispy_forms_tags %}
+{% block title %}Article Detail{% endblock %}
 {% block content %}
-<div class="container">
-    <h1 class="mb-4">Article List</h1>
+<h1>{{ object.title }}</h1>
 
-    <!-- Loop through the articles -->
-    {% for article in article_list %}
-    <div class="card shadow-sm mb-4">
-        <div class="card-header">
-            <h2 class="h5 fw-bold mb-0">
-                <a class="article-title text-dark text-decoration-none" href="{% url 'article_detail' article.pk %}">
-                    {{ article.title }}
-                </a>
-            </h2>
-            <span class="text-muted">by {{ article.author }} &middot; {{ article.date }}</span>
-        </div>
-
-        <div class="card-body">
-            <p>{{ article.body|safe }}</p>
-
-            <!-- Action links for the article author -->
-            {% if article.author.pk == request.user.pk %}
-            <a href="{% url 'article_edit' article.pk %}" class="btn btn-sm btn-outline-primary">Edit</a>
-            <a href="{% url 'article_delete' article.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
-            {% endif %}
-            <a href="{{ article.get_absolute_url }}" class="btn btn-sm btn-outline-success">New Comment</a> <!-- Link to article detail page -->
-        </div>
-
-        <div class="card-footer">
-            <!-- Display comments -->
-            <h6 class="fw-bold">Comments:</h6>
-            {% if article.comment_set.all %}
-            <ul class="list-unstyled">
-                {% for comment in article.comment_set.all %}
-                <li class="mb-2">
-                    <strong>{{ comment.author }}</strong> &middot; 
-                    <span class="text-muted">{{ comment.date_posted }}</span>
-                    <p class="mb-0">{{ comment }}</p>
-                </li>
-                {% endfor %}
-            </ul>
-            {% else %}
-            <p class="text-muted">No comments yet. Be the first to comment!</p>
-            {% endif %}
-        </div>
+<!-- Article details inside card -->
+<div class="card mb-4">
+    <div class="card-header">
+        <span class="fw-bold">{{ object.title }}</span> &middot;
+        <span class="text-muted"> by {{ object.author }} | {{ object.date }}</span>
     </div>
-    {% endfor %}
+    <div class="card-body">
+        <p>{{ object.body|safe }}</p>
+        {% if object.author.pk == request.user.pk %}
+        <a href="{% url 'article_edit' object.pk %}" class="btn btn-outline-primary btn-sm">Edit</a>
+        <a href="{% url 'article_delete' object.pk %}" class="btn btn-outline-danger btn-sm">Delete</a>
+        {% endif %}
+        <a href="{{ object.get_absolute_url }}" class="btn btn-outline-secondary btn-sm">New Comment</a>
+    </div>
 </div>
+
+<!-- Comments section inside card -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h4>Comments</h4>
+    </div>
+    <div class="card-body">
+        {% if object.comment_set.all %}
+            {% for comment in object.comment_set.all %}
+            <p>
+                <span class="fw-bold">{{ comment.author }}</span> &middot; {{ comment }}
+            </p>
+            {% endfor %}
+        {% else %}
+            <p class="text-muted">No comments yet. Be the first to comment!</p>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Add Comment Form inside card -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h4>Add Comment</h4>
+    </div>
+    <div class="card-body">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-success btn-sm" type="submit">Save Comment</button>
+        </form>
+    </div>
+</div>
+
+<!-- Back to All Articles button -->
+<p>
+    <a href="{% url 'article_list' %}" class="btn btn-outline-secondary btn-sm">Back to All Articles</a>
+</p>
+
 {% endblock %}

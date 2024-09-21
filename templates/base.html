@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <!-- Header and Navbar -->
-    <header class="border-bottom py-3 mb-3">
+    <!-- Header with card-like styling -->
+    <header class="border-bottom py-3 mb-3 p-3 bg-white rounded">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <!-- Logo on the left -->
@@ -66,14 +66,12 @@
 
     <div class="container-fluid">
         <div class="row">
-            <!-- Left Sidebar -->
-            <nav class="col-md-2 d-md-block bg-light sidebar position-fixed shadow-sm p-3 mb-5 bg-white rounded">
+            <!-- Left Sidebar with card-like styling -->
+            <nav class="col-md-2 d-md-block bg-white p-3 rounded left-sidebar">
                 <div class="sidebar-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'article_new' %}">
-                                + New Article
-                            </a>
+                            <a class="nav-link active" href="{% url 'article_new' %}">+ New Article</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Tutorials</a>
@@ -81,15 +79,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">JavaScript</a>
                                     <ul class="nav flex-column ms-3">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Objects</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Object Flashcards</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Object Quiz</a>
-                                        </li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Objects</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Object Flashcards</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Object Quiz</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -107,42 +99,30 @@
                 </div>
             </main>
 
-            <!-- Right Sidebar with 3 headings -->
-            <nav class="col-md-2 d-md-block bg-light sidebar position-fixed end-0 shadow-sm p-3 mb-5 bg-white rounded">
+            <!-- Right Sidebar with card-like styling -->
+            <nav class="col-md-2 d-md-block bg-white p-3 rounded right-sidebar">
                 <div class="sidebar-sticky pt-3">
                     <ul class="nav flex-column">
                         <!-- Placeholder headings and subheadings -->
                         <li class="nav-item">
                             <h5>Heading 1</h5>
                             <ul class="nav flex-column ms-3">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Subheading 1</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Subheading 2</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link" href="#">Subheading 1</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Subheading 2</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <h5>Heading 2</h5>
                             <ul class="nav flex-column ms-3">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Subheading 1</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Subheading 2</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link" href="#">Subheading 1</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Subheading 2</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <h5>Heading 3</h5>
                             <ul class="nav flex-column ms-3">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Subheading 1</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Subheading 2</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link" href="#">Subheading 1</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Subheading 2</a></li>
                             </ul>
                         </li>
                     </ul>
