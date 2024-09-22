@@ -12,6 +12,9 @@ class HomePageView(TemplateView):
 class ObjectFlashcardsView(TemplateView):
     template_name = 'object_flashcards.html'
 
+class ObjectsTutorialView(TemplateView):
+    template_name = 'objects_tutorial.html'
+
 class ObjectQuizView(TemplateView):
     template_name = 'object_quiz.html'
 

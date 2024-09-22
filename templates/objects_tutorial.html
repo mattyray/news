@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block title %}JavaScript Objects Tutorial{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Card for the Tutorial Header -->
+    <div class="card shadow-sm mb-4 p-4">
+        <h1>Objects in JavaScript</h1>
+        <p>This tutorial introduces JavaScript objects, explains how they work, and provides examples for beginners.</p>
+    </div>
+
+    <!-- Section 1: What is an Object? -->
+    <div class="card shadow-sm mb-4 p-4">
+        <h2>What is an Object?</h2>
+        <p>In JavaScript, an <strong>object</strong> is a complex data structure that stores collections of key-value pairs called properties. The key is a string (or property name), and the value can be any data type, such as numbers, strings, arrays, or other objects.</p>
+        <p>Objects are flexible and used extensively in JavaScript to organize and manipulate data.</p>
+    </div>
+
+    <!-- Section 2: Creating an Object -->
+    <div class="card shadow-sm mb-4 p-4">
+        <h2>Creating an Object</h2>
+        <p>You can create an object in JavaScript using <strong>object literal syntax</strong>:</p>
+        <pre><code class="language-javascript">
+let person = {
+    name: "John",
+    age: 30,
+    isStudent: false
+};
+        </code></pre>
+        <p>The object <code>person</code> has three properties: <code>name</code>, <code>age</code>, and <code>isStudent</code>. You can access these properties using dot notation or bracket notation:</p>
+        <pre><code class="language-javascript">
+console.log(person.name);  // Output: John
+console.log(person['age']);  // Output: 30
+        </code></pre>
+    </div>
+
+    <!-- Section 3: Adding and Modifying Properties -->
+    <div class="card shadow-sm mb-4 p-4">
+        <h2>Adding and Modifying Properties</h2>
+        <p>You can add new properties or modify existing ones:</p>
+        <pre><code class="language-javascript">
+person.city = "New York";  // Adds a new property 'city'
+person.age = 31;  // Modifies the 'age' property
+        </code></pre>
+    </div>
+
+    <!-- Section 4: Methods in Objects -->
+    <div class="card shadow-sm mb-4 p-4">
+        <h2>Methods in Objects</h2>
+        <p>A <strong>method</strong> is a function that is a property of an object. Methods allow you to add behaviors to objects:</p>
+        <pre><code class="language-javascript">
+let person = {
+    name: "John",
+    greet: function() {
+        console.log("Hello, my name is " + this.name);
+    }
+};
+
+person.greet();  // Output: Hello, my name is John
+        </code></pre>
+        <p>The keyword <code>this</code> refers to the current object, enabling access to other properties or methods within the object.</p>
+    </div>
+
+    <!-- Section 5: Nested Objects -->
+    <div class="card shadow-sm mb-4 p-4">
+        <h2>Nested Objects</h2>
+        <p>Objects can also contain other objects, creating a structure known as <strong>nested objects</strong>:</p>
+        <pre><code class="language-javascript">
+let company = {
+    name: "Tech Corp",
+    address: {
+        street: "123 Main St",
+        city: "San Francisco",
+        state: "CA"
+    }
+};
+
+console.log(company.address.city);  // Output: San Francisco
+        </code></pre>
+    </div>
+
+    <!-- Section 6: Looping Through Object Properties -->
+    <div class="card shadow-sm mb-4 p-4">
+        <h2>Looping Through Object Properties</h2>
+        <p>You can use a <code>for...in</code> loop to iterate over an object's properties:</p>
+        <pre><code class="language-javascript">
+let person = {
+    name: "John",
+    age: 30,
+    isStudent: false
+};
+
+for (let key in person) {
+    console.log(key + ": " + person[key]);
+}
+        </code></pre>
+    </div>
+
+    <!-- Section 7: Object Methods -->
+    <div class="card shadow-sm mb-4 p-4">
+        <h2>Object Methods</h2>
+        <p>JavaScript provides several built-in methods for working with objects:</p>
+        <ul>
+            <li><code>Object.keys()</code>: Returns an array of an object's property names.</li>
+            <li><code>Object.values()</code>: Returns an array of an object's property values.</li>
+            <li><code>Object.entries()</code>: Returns an array of key-value pairs.</li>
+        </ul>
+        <pre><code class="language-javascript">
+let car = {
+    make: "Tesla",
+    model: "Model 3",
+    year: 2021
+};
+
+console.log(Object.keys(car));  // Output: ['make', 'model', 'year']
+console.log(Object.values(car));  // Output: ['Tesla', 'Model 3', 2021]
+console.log(Object.entries(car));  // Output: [['make', 'Tesla'], ['model', 'Model 3'], ['year', 2021]]
+        </code></pre>
+    </div>
+</div>
+{% endblock %}

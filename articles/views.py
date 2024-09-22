@@ -12,12 +12,12 @@ from django.urls import reverse_lazy, reverse
 
 class ArticleListView(LoginRequiredMixin, ListView):
     model = Article
-    template_name = "article_list.html"
+    template_name = "article/article_list.html"
 
 
 class CommentGet(DetailView):
     model = Article
-    template_name = "article_detail.html"
+    template_name = "article/article_detail.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -28,7 +28,7 @@ class CommentGet(DetailView):
 class CommentPost(SingleObjectMixin, FormView):
     model = Article
     form_class = CommentForm
-    template_name = "article_detail.html"
+    template_name = "article/article_detail.html"
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -43,7 +43,7 @@ class CommentPost(SingleObjectMixin, FormView):
     
     def get_success_url(self):
         article = self.object
-        return reverse("article_detail", kwargs={"pk": self.object.pk})
+        return reverse("article/article_detail", kwargs={"pk": self.object.pk})
     
 
 
@@ -59,7 +59,7 @@ class ArticleDetailView(LoginRequiredMixin, DetailView):
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
-    template_name = "article_edit.html"
+    template_name = "article/article_edit.html"
     form_class = ArticleForm #chatgpt
 #    fields = ("title", "body") removed this
 
@@ -70,7 +70,7 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Article
-    template_name = "article_delete.html"
+    template_name = "article/article_delete.html"
     success_url = reverse_lazy("article_list")
 
     def test_func(self):
@@ -82,7 +82,7 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
     form_class = ArticleForm #chatgpt 
     #removed fields = ("title", "body")
-    template_name = "article_new.html"
+    template_name = "article/article_new.html"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
