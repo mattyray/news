@@ -1,14 +1,15 @@
-<!--temp\new_article.html-->
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
 {% block title %}New Article{% endblock %}
 
 {% block content %}
-<h1>New Article</h1>
-<form method="POST" enctype="multipart/form-data"> <!-- added enctype=vchatgpt-->
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button class="btn btn-info ml-2" type="submit">Save</button>
-</form>
+<div class="card shadow-sm mb-4 p-4"> <!-- Card to match the article styling -->
+    <h1>New Article</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-success mt-3" type="submit">Save</button> <!-- Styled button to match the site -->
+    </form>
+</div>
 {% endblock %}

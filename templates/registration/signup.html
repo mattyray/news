@@ -1,12 +1,20 @@
-<!--root\temp\reg\signup.html-->
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-<form method="POST">{% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit">Sign Up</button>
-</form>
+<div class="card shadow-sm mb-4 p-4"> <!-- Card to match styling -->
+    <h1 class="mb-3">Join Our Learning Platform</h1>
+    <p>Sign up to access interactive tutorials, track your progress, and unlock quizzes and coding challenges.</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}  <!-- Display form using crispy forms for styling -->
+        <button class="btn btn-success mt-3" type="submit">Sign Up</button>
+    </form>
+
+    <p class="mt-4">Already have an account? 
+        <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+    </p>
+</div>
 {% endblock %}
