@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ unit.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ unit.title }}</h1>
+    
+    <!-- Display content from the admin or generated dynamically -->
+    <div class="unit-content">
+        <p>{{ unit.content }}</p>
+    </div>
+</div>
+{% endblock %}

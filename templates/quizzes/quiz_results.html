@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Quiz Results{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1>{{ quiz.title }} Results</h1>
+    <p>Your Score: {{ score }}</p>
+    <a href="{% url 'unit_detail' quiz.unit.id %}" class="btn btn-primary">Back to Tutorial</a>
+</div>
+{% endblock %}

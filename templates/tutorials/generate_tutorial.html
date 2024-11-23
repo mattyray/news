@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Generate Tutorial{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Generate a Tutorial</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="topic" class="form-label">Enter a Topic</label>
+            <input type="text" name="topic" id="topic" class="form-control" placeholder="E.g., JavaScript Objects" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate</button>
+    </form>
+
+    {% if content %}
+        <hr>
+        <h2>Generated Content</h2>
+        <div class="card p-3">
+            <p>{{ content }}</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

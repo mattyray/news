@@ -1,4 +1,3 @@
-#articles/views.py
 from django.shortcuts import render
 from django.views import View
 from django.views.generic import ListView, DetailView, FormView
@@ -12,12 +11,12 @@ from django.urls import reverse_lazy, reverse
 
 class ArticleListView(LoginRequiredMixin, ListView):
     model = Article
-    template_name = "article/article_list.html"
+    template_name = "article/article_list.html"  # Updated path
 
 
 class CommentGet(DetailView):
     model = Article
-    template_name = "article/article_detail.html"
+    template_name = "article/article_detail.html"  # Updated path
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -28,7 +27,7 @@ class CommentGet(DetailView):
 class CommentPost(SingleObjectMixin, FormView):
     model = Article
     form_class = CommentForm
-    template_name = "article/article_detail.html"
+    template_name = "article/article_detail.html"  # Updated path
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -43,7 +42,7 @@ class CommentPost(SingleObjectMixin, FormView):
     
     def get_success_url(self):
         article = self.object
-        return reverse("article/article_detail", kwargs={"pk": self.object.pk})
+        return reverse("article/article_detail", kwargs={"pk": self.object.pk})  # Updated path
     
 
 
@@ -59,9 +58,8 @@ class ArticleDetailView(LoginRequiredMixin, DetailView):
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
-    template_name = "article/article_edit.html"
-    form_class = ArticleForm #chatgpt
-#    fields = ("title", "body") removed this
+    template_name = "article/article_edit.html"  # Updated path
+    form_class = ArticleForm
 
     def test_func(self):
         obj = self.get_object()
@@ -70,7 +68,7 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Article
-    template_name = "article/article_delete.html"
+    template_name = "article/article_delete.html"  # Updated path
     success_url = reverse_lazy("article_list")
 
     def test_func(self):
@@ -80,9 +78,8 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
-    form_class = ArticleForm #chatgpt 
-    #removed fields = ("title", "body")
-    template_name = "article/article_new.html"
+    form_class = ArticleForm
+    template_name = "article/article_new.html"  # Updated path
 
     def form_valid(self, form):
         form.instance.author = self.request.user
