@@ -1,22 +1,14 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import CustomUser
 
+# Custom form for user creation
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
-        model=CustomUser
-        fields=(
-            'username',
-            'email',
-            'age',
-        )
-        #using the meta class to override the default fieldsmby setting the model to customuser defined in models
-        #
+        model = CustomUser  # Reference your custom user model
+        fields = ('username', 'email', 'age', 'bio', 'profile_picture')
 
+# Custom form for user change/edit
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
-        models=CustomUser
-        fields=(
-            'username',
-            'email',
-            'age',
-        )
+        model = CustomUser
+        fields = ('username', 'email', 'age', 'bio', 'profile_picture')

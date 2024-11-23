@@ -27,7 +27,10 @@
                 <nav class="d-flex">
                     <a href="{% url 'home' %}" class="nav-link px-3">Home</a>
                     <a href="{% url 'article_new' %}" class="nav-link px-3">New Article</a>
-                    <a href="{% url 'tutorial' %}" class="nav-link px-3">Tutorials</a>
+                    <a href="{% url 'tutorials_list' %}" class="nav-link px-3">Tutorials</a>
+                    <!-- this top one s useless /\/\-->
+                    <a href="{% url 'generate_tutorial' %}">Generate Tutorial</a>
+       
                 </nav>
     
                 <!-- Search bar and accounts section on the right -->
@@ -44,8 +47,7 @@
                             {{ user.username }}
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item" href="">Profile</a></li>
-                            <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
+                            <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>                            <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{% url 'logout' %}">Sign out</a></li>
                         </ul>
@@ -72,14 +74,12 @@
                             <a class="nav-link active" href="{% url 'article_new' %}">+ New Article</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tutorials</a>
+                            <a class="nav-link" href="{% url 'tutorials_list' %}">Tutorials</a>
                             <ul class="nav flex-column ms-3">
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">JavaScript</a>
                                     <ul class="nav flex-column ms-3">
                                         <li class="nav-item"><a class="nav-link" href="#">Objects</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#">Place Holder</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#">Place Holder</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -106,21 +106,18 @@
                             <h5>Heading 1</h5>
                             <ul class="nav flex-column ms-3">
                                 <li class="nav-item"><a class="nav-link" href="#">Subheading 1</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Subheading 2</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <h5>Heading 2</h5>
                             <ul class="nav flex-column ms-3">
                                 <li class="nav-item"><a class="nav-link" href="#">Subheading 1</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Subheading 2</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <h5>Heading 3</h5>
                             <ul class="nav flex-column ms-3">
                                 <li class="nav-item"><a class="nav-link" href="#">Subheading 1</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Subheading 2</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Units List{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Units</h1>
+
+    <ul>
+        {% if units %}
+            {% for unit in units %}
+                <li><a href="{% url 'unit_detail' unit.id %}">{{ unit.title }}</a></li>
+            {% endfor %}
+        {% else %}
+            <p>No units available yet.</p>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}

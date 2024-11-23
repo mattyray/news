@@ -1,10 +1,9 @@
-#root\accounts\urls.py
-
-from django.urls import path, include
-from .views import SignUpView, CustomLogoutView
-from django.contrib.auth import views as auth_views
+from django.urls import path
+from .views import SignUpView, CustomLogoutView, profile_view, ProfileEditView
 
 urlpatterns = [
-    path("signup/", SignUpView.as_view(), name="signup"),
-    path('logout/', CustomLogoutView.as_view(), name='logout'),    
-    ]       
+    path('signup/', SignUpView.as_view(), name='signup'),
+    path('logout/', CustomLogoutView.as_view(), name='logout'),
+    path('profile/', profile_view, name='profile'),  # Use profile_view here
+    path('profile/edit/', ProfileEditView.as_view(), name='profile_edit'),
+]
