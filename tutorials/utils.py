@@ -1,21 +1,26 @@
-from django.conf import settings
 import openai
+from django.conf import settings
 
-# Set OpenAI API key from settings
+# Set the OpenAI API key
 openai.api_key = settings.OPENAI_API_KEY
 
-# Function to query ChatGPT
-def get_chatgpt_response(prompt):
+def generate_tutorial_content(topic):
+    """
+    Calls the OpenAI Chat API to generate a tutorial based on the provided topic.
+    """
     try:
+        # Use the updated OpenAI API
         response = openai.ChatCompletion.create(
-            model="gpt-4",  # Use "gpt-4" or "gpt-3.5-turbo"
+            model="gpt-4",  # Or "gpt-3.5-turbo" if GPT-4 isn't available
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": prompt}
+                {"role": "user", "content": f"Write a detailed tutorial on the topic: {topic}."}
             ],
-            max_tokens=200,
+            max_tokens=600,
             temperature=0.7
         )
-        return response["choices"][0]["message"]["content"].strip()
+        # Return the generated content
+        return response["choices"][0]["message"]["content"]
     except Exception as e:
-        return f"Error: {e}"
+        # Return the error message in case of failure
+        return f"Error generating content: {e}"
