@@ -1,6 +1,5 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
-from quizzes.models import QuizProgress  # Correct import
 from .forms import CustomUserChangeForm, CustomUserCreationForm
 from .models import CustomUser
 from django.urls import reverse_lazy
