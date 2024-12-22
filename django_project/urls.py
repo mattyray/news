@@ -11,7 +11,6 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),  # CKEditor-related URLs
     path('', include('pages.urls')),  # Home or landing page
     path('tutorials/', include('tutorials.urls')),  # Tutorials URLs
-    path('quizzes/', include('quizzes.urls')),  # Quizzes URLs
 ]
 
 # Serve static and media files in development mode

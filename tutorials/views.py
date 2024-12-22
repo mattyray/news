@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .utils import generate_tutorial_content  # Import the utility function
+from .utils import generate_tutorial_content  # Utility function for OpenAI API
 
 def generate_tutorial_view(request):
     """
