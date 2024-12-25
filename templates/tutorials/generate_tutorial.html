@@ -1,23 +1,41 @@
 {% extends "base.html" %}
 
-{% block title %}Generate Tutorial{% endblock %}
+{% block title %}Welcome to the Lotus Path - Generate a Tutorial{% endblock %}
 
 {% block content %}
 <div class="container mt-4">
-    <h1>Generate a Tutorial</h1>
-    <form method="post">
-        {% csrf_token %}
-        <div class="mb-3">
-            <label for="topic" class="form-label">Enter a topic:</label>
-            <input type="text" id="topic" name="topic" class="form-control" placeholder="E.g., Python functions" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Generate</button>
-    </form>
+    <!-- Introduction Section -->
+    <div class="bg-light p-4 rounded border shadow-sm">
+        <h1 class="text-primary">Welcome to the Lotus Path</h1>
+        <p class="lead">
+            The Lotus Path is your ultimate learning platform where you can explore any topic, generate customized tutorials, 
+            track your progress, and become a master of anything you desire! Whether you're diving into programming, history, or arts, 
+            this platform adapts to your learning style and helps you achieve your goals.
+        </p>
+        <p>
+            Use the form below to generate a tutorial on any topic you wish to learn. Enter a topic, and we'll create a personalized guide 
+            to kickstart your journey. Let's make learning fun and effective!
+        </p>
+    </div>
 
+    <!-- Tutorial Generation Form -->
+    <div class="mt-5">
+        <h2>Generate Your Tutorial</h2>
+        <form method="post" class="bg-white p-4 rounded border shadow-sm">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="topic" class="form-label">What do you want to learn today?</label>
+                <input type="text" id="topic" name="topic" class="form-control" placeholder="E.g., Python functions" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100">Generate Tutorial</button>
+        </form>
+    </div>
+
+    <!-- Generated Tutorial Section -->
     {% if content %}
-        <div class="mt-4">
-            <h2>Generated Tutorial:</h2>
-            <p>{{ content }}</p>
+        <div class="mt-5 bg-light p-4 rounded border shadow-sm">
+            <h2>Your Custom Tutorial</h2>
+            <p class="mt-3">{{ content }}</p>
         </div>
     {% endif %}
 </div>

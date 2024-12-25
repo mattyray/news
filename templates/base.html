@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Your Website{% endblock %}</title>
+    <title>{% block title %}Welcome to the Lotus Path! Learn anything!{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" 
@@ -21,7 +24,7 @@
             <!-- Logo -->
             <a href="{% url 'home' %}" class="text-dark text-decoration-none">
                 <img src="{% static 'images/logo.png' %}" alt="Logo" width="30" height="30">
-                <span class="h5 ms-2">Your Website</span>
+                <span class="h5 ms-2">Welcome to the Lotus Path! Learn anything!</span>
             </a>
 
             <!-- Navigation -->
@@ -47,7 +50,6 @@
             <aside class="col-md-3">
                 <nav class="bg-white p-3 rounded">
                     <ul class="nav flex-column">
-
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'generate_tutorial' %}">Generate Tutorial</a>
                         </li>
