@@ -13,7 +13,7 @@ SECRET_KEY = env.str("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = ["news-root.fly.dev", "localhost", "127.0.0.1"]
-CSRF_TRUSTED_ORIGINS = ["https://news-root.fly.dev"]
+CSRF_TRUSTED_ORIGINS = ["https://thelotuspath.fly.dev"]
 
 # Add the OpenAI API Key from environment variables
 OPENAI_API_KEY = env.str('OPENAI_API_KEY')  # <-- This is where you load the API key
