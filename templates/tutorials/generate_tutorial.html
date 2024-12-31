@@ -35,7 +35,10 @@
     {% if content %}
         <div class="mt-5 bg-light p-4 rounded border shadow-sm">
             <h2>Your Custom Tutorial</h2>
-            <p class="mt-3">{{ content }}</p>
+            <!-- Render content with HTML formatting -->
+            <div class="mt-3">
+                {{ content|safe }}
+            </div>
         </div>
     {% endif %}
 </div>

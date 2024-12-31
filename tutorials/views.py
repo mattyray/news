@@ -7,7 +7,7 @@ def generate_tutorial_view(request):
     """
     content = None
     if request.method == "POST":
-        topic = request.POST.get("topic", "")
+        topic = request.POST.get("topic", "").strip()
         if topic:
             # Call the utility function to generate content
             content = generate_tutorial_content(topic)
