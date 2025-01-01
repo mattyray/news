@@ -9,14 +9,25 @@ env.read_env()  # Loads the .env file
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security key and debug settings
-SECRET_KEY = env.str("SECRET_KEY")
+SECRET_KEY = env.str("SECRET_KEY", default="fallback-secret-key")  # Use a fallback for development
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["news-root.fly.dev", "localhost", "127.0.0.1"]
-CSRF_TRUSTED_ORIGINS = ["https://thelotuspath.fly.dev"]
+# Allowed hosts configuration
+ALLOWED_HOSTS = [
+    "news-root.fly.dev",  # Previous app
+    "thelotuspath.fly.dev",  # New app
+    "localhost", 
+    "127.0.0.1"
+]
+
+# CSRF trusted origins
+CSRF_TRUSTED_ORIGINS = [
+    "https://news-root.fly.dev",
+    "https://thelotuspath.fly.dev"
+]
 
 # Add the OpenAI API Key from environment variables
-OPENAI_API_KEY = env.str('OPENAI_API_KEY')  # <-- This is where you load the API key
+OPENAI_API_KEY = env.str('OPENAI_API_KEY', default="dummy-openai-key")  # Use a dummy for development
 
 # Application definition
 INSTALLED_APPS = [
@@ -75,18 +86,10 @@ DATABASES = {
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
 # Internationalization

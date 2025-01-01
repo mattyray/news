@@ -23,7 +23,8 @@ RUN set -ex && \
 COPY . /code
 
 ENV SECRET_KEY "fNsa5vd4xlmOc0uPpBNEPp16hSKH78r5OZAXAScml05J6O42PJ"
-RUN python manage.py collectstatic --noinput
+# Placeholder comment for collectstatic. Run this during deployment instead.
+# RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 

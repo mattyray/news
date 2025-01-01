@@ -11,7 +11,9 @@ from django.urls import reverse_lazy, reverse
 
 class ArticleListView(LoginRequiredMixin, ListView):
     model = Article
-    template_name = "article/article_list.html"  # Updated path
+    template_name = "article/article_list.html"
+    context_object_name = "article_list"  # Add this to align with your template
+
 
 
 class CommentGet(DetailView):
