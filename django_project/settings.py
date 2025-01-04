@@ -15,7 +15,7 @@ DEBUG = env.bool("DEBUG", default=False)
 # Allowed hosts configuration
 ALLOWED_HOSTS = [
     "news-root.fly.dev",  # Previous app
-    "thelotuspath.fly.dev",  # New app
+    "lotuspath.fly.dev",  # New app
     "localhost", 
     "127.0.0.1"
 ]
@@ -23,7 +23,7 @@ ALLOWED_HOSTS = [
 # CSRF trusted origins
 CSRF_TRUSTED_ORIGINS = [
     "https://news-root.fly.dev",
-    "https://thelotuspath.fly.dev"
+    "https://lotuspath.fly.dev"
 ]
 
 # Add the OpenAI API Key from environment variables

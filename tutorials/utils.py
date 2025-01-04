@@ -18,7 +18,7 @@ def generate_tutorial_content(topic):
                 {"role": "system", "content": "You are a helpful assistant."},
                 {"role": "user", "content": f"Write a detailed tutorial on the topic: {topic}. Format the response in Markdown."}
             ],
-            max_tokens=600,
+            max_tokens=2500,
             temperature=0.7
         )
         # Convert Markdown to HTML for better formatting

@@ -29,3 +29,6 @@ ENV SECRET_KEY "fNsa5vd4xlmOc0uPpBNEPp16hSKH78r5OZAXAScml05J6O42PJ"
 EXPOSE 8000
 
 CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "django_project.wsgi"]
+
+RUN apt-get update && apt-get install -y sqlite3 && rm -rf /var/lib/apt/lists/*
+
