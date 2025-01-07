@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for news-root on 2024-06-15T15:17:21-04:00
+# fly.toml app configuration file generated for thelotuspathdevelopment on 2025-01-07T11:54:19-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'thelotuspath'
+app = 'thelotuspathdevelopment'
 primary_region = 'ewr'
 console_command = '/code/manage.py shell'
 
@@ -18,7 +18,7 @@ console_command = '/code/manage.py shell'
 [http_service]
   internal_port = 8000
   force_https = true
-  auto_stop_machines = true
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
   processes = ['app']

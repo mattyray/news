@@ -22,9 +22,8 @@ RUN set -ex && \
     rm -rf /root/.cache/
 COPY . /code
 
-ENV SECRET_KEY "fNsa5vd4xlmOc0uPpBNEPp16hSKH78r5OZAXAScml05J6O42PJ"
-# Placeholder comment for collectstatic. Run this during deployment instead.
-# RUN python manage.py collectstatic --noinput
+ENV SECRET_KEY=${SECRET_KEY}
+
 
 EXPOSE 8000
 
